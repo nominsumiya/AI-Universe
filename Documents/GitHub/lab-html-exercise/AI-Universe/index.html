@@ -9,10 +9,31 @@
   </head>
   <body>
     <div id="firstScreen"> 
-      <h1>Choose Your Character</h1>
+      <img src="./images/background.png" alt="" class="background-img" />
+      <button type="submit" class="startButton">Enter AI Universe</button>
+      <div class="text-block1">
+        <h1>Welcome to AI Universe</h1>
+        <p1>Here comes text where the players will be welcomed into AI Universe! </p1>
     </div>
-    <button id="startButton">Start Game</button>
-    <canvas width="500px" height="300px"></canvas>
+    <div class=""text-block2>
+    <label for="characterName"><b>Pick Character Name</b>
+      </label>
+      <input type="text" placeholder=" " name="characterName" id="characterName" required>
+    </div>
+</div> 
+<div id="game-board">
+  <form id="scoreBoard"></form>
+  <canvas width="950px" height="600px"></canvas>
+</div>
+</div>
+    <div id="secondScreen"> 
+        <img src="./images/bgsecondScreen.png" alt="" class="bgsecondScreen-img" />
+        <div id="bgImg3"></div>
+    <div id="thirdScreen"> 
+        <h1>Game Over</h1>
+      </div>
+
     <script src="./js/index.js" ></script>
   </body>
 </html>
+

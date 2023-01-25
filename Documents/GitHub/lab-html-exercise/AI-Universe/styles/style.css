@@ -1,11 +1,91 @@
+/* First Screen*/
+
 body {
-    width: 400px;
-    margin: 50px auto;
-    background-color: blue;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: black;
   }
-  
-  h1 {
+ 
+.background-img {
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    min-width: 100%;
+    min-height: 100%;
+    /*background-image: image("background-img");
+    background-repeat: repeat-x;*/
+  }
+
+h1 {
     text-align: center;
     color: white;
+    font-family: 'Franklin Gothic Medium';
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
   }
-  
+
+p1 {
+    font-family: Ariel;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+  }
+   
+.text-block1 {
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    right: 40%;
+    background-color: #40838F;
+    color: white;
+    position: center;
+    background: rgb#40838F(0, 0, 0.5); /* Fallback color */
+    background: rgba#40838F(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+    width: 50%;
+    padding: 30px;
+    opacity: 0.8;
+  }
+
+.text-block2 {
+        position: absolute;
+        background-color: #40838F;
+        color: white;
+        position: relative;
+        max-width: 800px;
+        background: rgb#40838F(0, 0, 0.5); /* Fallback color */
+        background: rgba#40838F(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+        width: 80%;
+        padding: 30px;
+        opacity: 1;
+  }
+
+.characterName {
+    font-family: Arial;
+    font-size: 20px;
+  }
+
+.startButton {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #40838F;
+    border: darkblue;
+    color: white;
+    padding: 15px 25px;
+    font-size: 16px;
+    margin: 4px 2px;
+    opacity: 0.6;
+    transition: 0.2s;
+  }
+
+  .startButton:hover {opacity: 1}
+
+
+  /* Second Screen*/
+
+  #bgImg3 {
+    animation: block 1s infinite linear;
+  }
