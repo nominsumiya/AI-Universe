@@ -8,12 +8,24 @@ body {
 }
 
 .harley-img {
+  position: absolute;
   width: 100px;
   height: 170px;
-  transition: 0.2s;
+  top: 50%;
+  left: 38%;
+  opacity: 1;
 }
 .harley-img:hover {
-  opacity: 1;
+  opacity: 0.8;
+}
+
+.textBox {
+  width: 50%;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  margin-top: 215px;
+  margin-left: 23%;
 }
 
 .background-img {
@@ -28,7 +40,7 @@ h1 {
   text-align: center;
   color: white;
   font-family: "Franklin Gothic Medium";
-  font-size: 40px;
+  font-size: 30px;
   display: flex;
   justify-content: center;
 }
@@ -39,51 +51,30 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
+
 
 .text-block1 {
   position: absolute;
-  top: 20%;
-  left: 27%;
-  right: 35%;
+  width: 400px;
+  height: 440px;
+  top: 10%;
+  left: 30%;
   background-color: #40838f;
   color: white;
   position: center;
   background: rgb#40838F(0, 0, 0.5); /* Fallback color */
   background: rgba#40838F(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
   width: 40%;
-  padding: 30px;
-  opacity: 0.8;
+  padding: 10px;
+  opacity: 0.9;
 }
 
-.text-block2 {
-  position: absolute;
-  top: 80%;
-  left: 10%;
-  right: 1%;
-  background-color: #40838f;
-  color: white;
-  position: relative;
-  max-width: 800px;
-  background: rgb#40838F(0, 0, 0.5); /* Fallback color */
-  background: rgba#40838F(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
-  width: 80%;
-  padding: 30px;
-  opacity: 0.8;
-}
-
-.text-block3 {
-  display: flex;
-}
-
-.characterName {
-  font-family: Arial;
-  font-size: 20px;
-}
 
 .startButton {
   position: absolute;
-  top: 100%;
+  top: 95%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #40838f;
@@ -92,7 +83,7 @@ p {
   padding: 15px 25px;
   font-size: 16px;
   margin: 4px 2px;
-  opacity: 0.6;
+  opacity: 0.7;
   transition: 0.2s;
 }
 
@@ -114,4 +105,37 @@ p {
 
 .screen3 {
   display: none;
+}
+
+/* Third Screen */
+
+.restartGame {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #40838f;
+  border: darkblue;
+  color: white;
+  padding: 15px 25px;
+  font-size: 30px;
+  margin: 4px 2px;
+  opacity: 0.9;
+  transition: 0.3s;
+}
+
+.restartGame:hover {
+  opacity: 0.5;
+}
+
+.gameoverText {
+  position: absolute;
+  background-color: #40838f;
+  color: white;
+  position: relative;
+  background: rgb#40838F(0, 0, 0.5); /* Fallback color */
+  background: rgba#40838F(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+  width: 100%;
+  padding: 30px;
+  opacity: 0.8;
 }

@@ -10,7 +10,10 @@ const ctx = myCanvas.getContext('2d');
 let score = 0;
 // Third Screen //
 let thirdScreen = document.querySelector("#thirdScreen");
-const bgThirdScreen = document.querySelector('.background-img')
+const bgThirdScreen = document.querySelector('.background-img');
+let restartGame = document.querySelector(".restartGame");
+let characterName = document.querySelector("#characterName");
+let gameoverText = document.querySelector(".gameoverText");
 // Background Img //
 const bgImg = new Image();
 bgImg.src = "../images/background.png";
@@ -227,6 +230,7 @@ scoreElement.innerText = score
        animationId = requestAnimationFrame(animate)
     }
 }
+
     function gameOver() {
         thirdScreen.style.display = "block"
             myCanvas.style.display = "none"
@@ -235,8 +239,19 @@ scoreElement.innerText = score
         bgThirdScreen.style.display = "block"
     }
 
-    function restartGame() {
-      location.reload()
+    function test() {
+        gameoverText.innerHTML = characterName.value;
     }
+    startButton.addEventListener('click', test);
+    
 
+    document.querySelector('.restartGame').addEventListener('click', function(){
+        window.location.reload();
+        return false;
+      });
+
+    function restartGame() {
+        location.reload();
+      }
+    
 });
