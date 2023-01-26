@@ -22,6 +22,7 @@ let harleyX = 80;
 let harleyY = 420;
 let harleyWidth = 140;
 let harleyHeight = 170;
+
 /*
 let harleyCharacter = document.getElementById("harley");
 let jumping = 0;
@@ -30,13 +31,7 @@ let jumping = 0;
 let harleySpeed = 20;
 let isMovingUp = false
 let isMovingDown = false
-let harleyRadius
 */
-jumpPressed = false;
-jumpInProgress = false;
-falling = false;
-JUMP_SPEED = 0.6;
-GRAVITY = 0.4;
 
 // Obstacle 1 //
 const obstacle1 = new Image();
@@ -84,82 +79,39 @@ window.addEventListener("load", () => {
         animate()
     } 
 
-    /*
-setInterval(function(){
-    let harleyTop =
-    parseInt(window.getComputedStyle("harley").getPropertyValue("top"));
-    if(jumping==0){
-    harley.style.top = (harleyTop+3)+"px";
-    }
-    },10);
-
-    function jump() {
-        jumping = 1;
-        let jumpCount = 0;
-        let jumpInterval = setInterval(function(){
-       let harleyTop =
-    parseInt(window.getComputedStyle(harley).getPropertyValue("top"));
-    if((harley>6)&&(counter<15)){
-    harley.style.top = (harleyTop-5)+"px";
-    if(jumpCount>20) {
-        clearInterval(jumpInterval);
-        jumping=0;
-        jumpCount=0;
-    }
-   }
-        jumpCount++;
-    },10);
-}
-window.addEventListener("click", jump());
-*/
-window.removeEventListener('keydown', this.keydown)
-window.removeEventListener('keyup', this.keyup)
-window.addEventListener('keydown', this.keydown)
-window.addEventListener('keyup', this.keyup)
-
-});
-
-keydown = (event)=>{
-if(event.code === "Space") {
-    this.jumpPressed = true;
-  }
-};
-keyup = (event)=>{
-    if(event.code === "Space") {
-        this.jumpPressed = false;
-    }
-};
-update(gameSpeed, frameTimeDelta) {
-    this.run(gameSpeed, frameTimeDelta);
-    this.run(frameTimeDelta);
-}
-
-jump(frameTimeDelta) {
-    if (this.jumpPressed) {
-        this.jumpInProgress = true;
-    }
-
-if(this.jumpInProgress && !this.falling){
-    if(this.y > this.myCanvas.height - this.minJumpHeight ||
-        (this.y > this.myCanvas.height - this.maxJumpHeight && this.jumpPressed)){
-            this.y -= this.JUMP_SPEED * frameTimeDelta * this.scaleRatio;
-        }else{
-            this.falling = true;
-        }
-    }else{
-        if(this,y < this.yStandingPosition){
-            this.y += this.GRAVITY * frameTimeDelta * this.scaleRatio;
-            if(this.y + this.height > this.myCanvas.height){
-                this.y = this.yStandingPosition;
-            }else{
-                this.falling = false;
-                this.jumpInProgress = false;
+    document.addEventListener("keydown", (e) => {
+      let count = 0;
+      isJumping = true;
+      if (e.key === " " && isJumping) {
+        const intervalId = setInterval(() => {
+          count += 1;
+  
+          harleyY -= 10;
+          if (count === 25) {
+            clearInterval(intervalId);
+            isJumping = !isJumping;
+            if (isJumping === false) {
+              goDown();
             }
+          }
+        }, 10);
+      }
+    });
+  
+    function goDown() {
+      let count = 0;
+      const intervalId = setInterval(() => {
+        count += 1;
+  
+        harleyY += 10;
+        if (count === 25) {
+          clearInterval(intervalId);
         }
+      }, 10);
     }
-}
 
-    /*document.addEventListener('keydown', event => {
+    /*
+    document.addEventListener('keydown', event => {
         if (event.key === 'ArrowUp') {
           isMovingUp = true
         }
@@ -209,14 +161,52 @@ if(this.jumpInProgress && !this.falling){
             bg2y = -myCanvas.height
           }
         
+          /*
           if (isMovingUp && harleyY > 0) {
             harleyY -= harleySpeed
           }
           if (isMovingDown && harleyY < myCanvas.height - harleyHeight) {
             harleyY += harleySpeed
           }
-        
+          */
+// Score
 
+          let Score = 0;
+
+          let harleyImg = createGroup();
+          let obstacle1 = createGroup();
+          let obstacle2 = createGroup();
+    harleyImg.setCollider("circle", 0, 0,40);
+
+    let PLAY = 1;
+    let END = 0;
+    let startButton = PLAY;
+
+    function draw() {
+        if (startButton === PLAY) {
+            score = Math.round(World.framecount/4);
+            if("keydown", (e)) {
+                harleyImg.velocityX = -4;
+                harleyImg.velocityX = 0;
+            }
+        if("keydown", (e)) {
+            harleyImg.velocityX = 4;
+            harleyImg.velocityX = 0;
+        }
+        
+        obstacle1();
+        obstacle2();
+        drawSprites();
+
+        textSize(15);
+        text("Score: "+ score, 14,25);
+
+        if(harleyImg.isTouching(harleyImg) || obstacle1.isTouching(harleyImg) || obstacle2.isTouching(harleyImg)) {
+            startButton = END;
+        }
+    }
+}
+        
     if (isgameOver) {
     cancelAnimationFrame(animationId)
     }else{
@@ -229,3 +219,4 @@ if(this.jumpInProgress && !this.falling){
 console.log("gameOver");
     }
 
+});
