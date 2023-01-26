@@ -48,18 +48,21 @@ p1 {
     opacity: 0.8;
   }
 
-.text-block2 {
-        position: absolute;
-        background-color: #40838F;
-        color: white;
-        position: relative;
-        max-width: 800px;
-        background: rgb#40838F(0, 0, 0.5); /* Fallback color */
-        background: rgba#40838F(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
-        width: 80%;
-        padding: 30px;
-        opacity: 1;
-  }
+  .text-block2 {
+    position: absolute;
+    top: 80%;
+    left: 15%;
+    right: 1%;
+    background-color: #40838F;
+    color: white;
+    position: relative;
+    max-width: 800px;
+    background: rgb#40838F(0, 0, 0.5); /* Fallback color */
+    background: rgba#40838F(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+    width: 80%;
+    padding: 30px;
+    opacity: 0.8;
+}
 
 .characterName {
     font-family: Arial;
@@ -86,6 +89,8 @@ p1 {
 
   /* Second Screen*/
 
-  #bgImg3 {
-    animation: block 1s infinite linear;
+  #score {
+    color: white;
+    font-size: 20px;
+    margin: 8px 420px;
   }

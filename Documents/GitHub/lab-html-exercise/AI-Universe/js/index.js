@@ -6,6 +6,7 @@ let firstScreen = document.querySelector("#firstScreen");
 let startButton = document.querySelector(".startButton");
 // Second Screen //
 let secondScreen = document.querySelector("#secondScreen");
+let score = 0;
 // Third Screen //
 let thirdScreen = document.querySelector("#thirdScreen");
 // Background Img //
@@ -20,8 +21,10 @@ const harleyImg = new Image();
 harleyImg.src = "../images/harley.png";
 let harleyX = 80;
 let harleyY = 420;
-let harleyWidth = 140;
-let harleyHeight = 170;
+let harleyWidth = 100;
+let harleyHeight = 160;
+// Score //
+let scoreElement = document.querySelector("#scr");
 
 /*
 let harleyCharacter = document.getElementById("harley");
@@ -79,6 +82,7 @@ window.addEventListener("load", () => {
         animate()
     } 
 
+// Jump
     document.addEventListener("keydown", (e) => {
       let count = 0;
       isJumping = true;
@@ -86,7 +90,7 @@ window.addEventListener("load", () => {
         const intervalId = setInterval(() => {
           count += 1;
   
-          harleyY -= 10;
+          harleyY -= 15;
           if (count === 25) {
             clearInterval(intervalId);
             isJumping = !isJumping;
@@ -94,7 +98,7 @@ window.addEventListener("load", () => {
               goDown();
             }
           }
-        }, 10);
+        }, 20);
       }
     });
   
@@ -103,11 +107,11 @@ window.addEventListener("load", () => {
       const intervalId = setInterval(() => {
         count += 1;
   
-        harleyY += 10;
+        harleyY += 15;
         if (count === 25) {
           clearInterval(intervalId);
         }
-      }, 10);
+      }, 20);
     }
 
     /*
@@ -132,24 +136,29 @@ window.addEventListener("load", () => {
         ctx.drawImage(bgImg2, bg1Y, 0, myCanvas.width, myCanvas.height)
         ctx.drawImage(bgImg4, bg2y, 0, myCanvas.width, myCanvas.height)
         ctx.drawImage(harleyImg, harleyX, harleyY, harleyWidth, harleyHeight);
-        ctx.drawImage(obstacle1, obstacle1X, obstacle1Y, 100, 100)
-        ctx.drawImage(obstacle2, obstacle2X, obstacle2Y, 100, 100)
-        ctx.drawImage(obstacle3, obstacle3X, obstacle3Y, 100, 100)
-        bg1Y += 2;
-        bg2y += 2;
+        ctx.drawImage(obstacle1, obstacle1X, obstacle1Y, 60, 100);
+        ctx.drawImage(obstacle2, obstacle2X, obstacle2Y, 60, 100);
+        ctx.drawImage(obstacle3, obstacle3X, obstacle3Y, 60, 100);
+        bg1Y += 0.5;
+        bg2y += 0.5;
+
+scoreElement.innerText = score
 
         obstacle1X -= 2
         if(obstacle1X < -200){
+            score++
             obstacle1X = myCanvas.width + 200;
         }
 
         obstacle2X -= 2
         if(obstacle2X < -200){
+            score++
             obstacle2X = myCanvas.width + 200;
         }
 
         obstacle3X -= 2
         if(obstacle3X < -200){
+            score++
             obstacle3X = myCanvas.width + 200;
         }
 
@@ -160,7 +169,8 @@ window.addEventListener("load", () => {
           if(bg2y > myCanvas.height){
             bg2y = -myCanvas.height
           }
-        
+       
+       
           /*
           if (isMovingUp && harleyY > 0) {
             harleyY -= harleySpeed
@@ -169,54 +179,48 @@ window.addEventListener("load", () => {
             harleyY += harleySpeed
           }
           */
-// Score
 
-          let Score = 0;
+// Collision
 
-          let harleyImg = createGroup();
-          let obstacle1 = createGroup();
-          let obstacle2 = createGroup();
-    harleyImg.setCollider("circle", 0, 0,40);
-
-    let PLAY = 1;
-    let END = 0;
-    let startButton = PLAY;
-
-    function draw() {
-        if (startButton === PLAY) {
-            score = Math.round(World.framecount/4);
-            if("keydown", (e)) {
-                harleyImg.velocityX = -4;
-                harleyImg.velocityX = 0;
+            if (
+                harleyX < obstacle1X + 100 &&
+                harleyX + harleyWidth > obstacle1X &&
+                harleyY < obstacle1Y + 100 &&
+                harleyY + harleyHeight > obstacle1Y
+            ){
+                isgameOver = true;
             }
-        if("keydown", (e)) {
-            harleyImg.velocityX = 4;
-            harleyImg.velocityX = 0;
-        }
+            if (
+                harleyX < obstacle2X + 100 &&
+                harleyX + harleyWidth > obstacle2X &&
+                harleyY < obstacle2Y + 100 &&
+                harleyY + harleyHeight > obstacle2Y
+            ){
+                isgameOver = true;
+            }
+            if (
+                harleyX < obstacle3X + 100 &&
+                harleyX + harleyWidth > obstacle3X &&
+                harleyY < obstacle3Y + 100 &&
+                harleyY + harleyHeight > obstacleY
+            ){
+                isgameOver = true;
+            }
         
-        obstacle1();
-        obstacle2();
-        drawSprites();
-
-        textSize(15);
-        text("Score: "+ score, 14,25);
-
-        if(harleyImg.isTouching(harleyImg) || obstacle1.isTouching(harleyImg) || obstacle2.isTouching(harleyImg)) {
-            startButton = END;
-        }
-    }
-}
+        
         
     if (isgameOver) {
     cancelAnimationFrame(animationId)
+    gameOver()
     }else{
        animationId = requestAnimationFrame(animate)
     }
 }
     function gameOver() {
         thirdScreen.style.display = "flex"
-        thirdScreen.style.display = "none"
-console.log("gameOver");
+            myCanvas.style.display = "none"
+    console.log("gameOver");
     }
+
 
 });
