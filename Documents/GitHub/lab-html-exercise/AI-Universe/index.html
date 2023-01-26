@@ -8,32 +8,49 @@
     <title>Document</title>
   </head>
   <body>
-    <div id="firstScreen"> 
+    <div id="firstScreen">
       <img src="./images/background.png" alt="" class="background-img" />
-      <button type="submit" class="startButton">Enter AI Universe</button>
+      <button class="startButton">Enter AI Universe</button>
       <div class="text-block1">
         <h1>Welcome to AI Universe</h1>
-        <p1>Here comes text where the players will be welcomed into AI Universe! </p1>
+        <p
+          >Here comes text where the players will be welcomed into AI Universe!
+        </p>
         <div class="text-block2">
-          <label for="characterName"><b>Pick Character Name</b>
-            </label>
-            <input type="text"placeholder=" " name="characterName" id="characterName" required>
+          <div class="text-block3">
+            <img src="./images/harley.png" alt="" class="harley-img" />
           </div>
-    </div>
-</div> 
-<div id="game-board">
-  <div id="score">SCORE: <span id="scr">0</span></div>
-  <canvas width="950px" height="600px"></canvas>
-</div>
-</div>
-    <div id="secondScreen"> 
-        <img src="./images/bgsecondScreen.png" alt="" class="bgsecondScreen-img" />
-        <div id="bgImg3"></div>
-    <div id="thirdScreen"> 
-      <img src="./images/bgsecondScreen.png" alt="" class="bgsecondScreen-img" />
-        <h1>Game Over</h1>
+          <label for="characterName"><b>Pick Character Name:</b> </label>
+          <input
+            type="text"
+            placeholder=" "
+            name="characterName"
+            id="characterName"
+            required
+          />
+        </div>
       </div>
-    <script src="./js/index.js" ></script>
+    </div>
+    <div id="game-board">
+      <div id="score">SCORE: <span id="scr">0</span></div>
+      <canvas width="950px" height="600px"></canvas>
+    </div>
+    <div id="secondScreen">
+      <img
+        src="./images/bgsecondScreen.png"
+        alt=""
+        class="bgsecondScreen-img"
+      />
+      <div id="bgImg3"></div>
+    </div>
+    <div id="thirdScreen" class="screen3">
+      <h1>Game Over</h1>
+      <img
+        src="./images/background.png"
+        alt=""
+        class="background-img"
+      />
+    </div>
+    <script src="./js/index.js"></script>
   </body>
 </html>
-

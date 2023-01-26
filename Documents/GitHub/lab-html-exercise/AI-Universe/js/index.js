@@ -1,14 +1,16 @@
-const myCanvas = document.querySelector('canvas');
-const ctx = myCanvas.getContext('2d');
-
+// Game board
+const gameBoard = document.querySelector('#game-board')
 // First Screen //
 let firstScreen = document.querySelector("#firstScreen");
 let startButton = document.querySelector(".startButton");
 // Second Screen //
 let secondScreen = document.querySelector("#secondScreen");
+const myCanvas = document.querySelector('canvas');
+const ctx = myCanvas.getContext('2d');
 let score = 0;
 // Third Screen //
 let thirdScreen = document.querySelector("#thirdScreen");
+const bgThirdScreen = document.querySelector('.background-img')
 // Background Img //
 const bgImg = new Image();
 bgImg.src = "../images/background.png";
@@ -16,6 +18,9 @@ const bgImg2 = new Image();
 bgImg2.src = "../images/bgsecondScreen.png";
 const bgImg4 = new Image();
 bgImg4.src = "../images/bgsecondScreen.png";
+// Background Img / Game Over //
+const bgImg5 = new Image();
+bgImg5.src = "../images/background.png";
 // Harley Img //
 const harleyImg = new Image();
 harleyImg.src = "../images/harley.png";
@@ -61,6 +66,10 @@ let isgameOver = false;
 let animationId = 0;
 
 
+// First Screen //
+firstScreen.style.display = "flex"
+myCanvas.style.display = "none"
+secondScreen.style.display = "block"
 
 // Second Screen //
 myCanvas.style.border = "2px solid black";
@@ -76,6 +85,7 @@ window.addEventListener("load", () => {
 // Start Game    
     function startGame() {
         myCanvas.style.display = "flex"
+        gameBoard.style.display = 'block'
         firstScreen.style.display = "none"
 
         console.log("startGame")
@@ -180,30 +190,31 @@ scoreElement.innerText = score
           }
           */
 
+
 // Collision
 
             if (
-                harleyX < obstacle1X + 100 &&
-                harleyX + harleyWidth > obstacle1X &&
-                harleyY < obstacle1Y + 100 &&
-                harleyY + harleyHeight > obstacle1Y
-            ){
+                harleyX < obstacle1X + 90 &&
+                harleyX + 90 > obstacle1X &&
+                harleyY < obstacle1Y + 90 &&
+                harleyY + 150 > obstacle1Y
+            ) {
                 isgameOver = true;
             }
             if (
-                harleyX < obstacle2X + 100 &&
-                harleyX + harleyWidth > obstacle2X &&
-                harleyY < obstacle2Y + 100 &&
-                harleyY + harleyHeight > obstacle2Y
-            ){
+                harleyX < obstacle2X + 90 &&
+                harleyX + 90 > obstacle2X &&
+                harleyY < obstacle2Y + 90 &&
+                harleyY + 150 > obstacle2Y
+            ) {
                 isgameOver = true;
             }
             if (
-                harleyX < obstacle3X + 100 &&
-                harleyX + harleyWidth > obstacle3X &&
-                harleyY < obstacle3Y + 100 &&
-                harleyY + harleyHeight > obstacleY
-            ){
+                harleyX < obstacle3X + 90 &&
+                harleyX + 90 > obstacle3X &&
+                harleyY < obstacle3Y + 90 &&
+                harleyY + 150 > obstacle3Y
+            ) {
                 isgameOver = true;
             }
         
@@ -217,10 +228,15 @@ scoreElement.innerText = score
     }
 }
     function gameOver() {
-        thirdScreen.style.display = "flex"
+        thirdScreen.style.display = "block"
             myCanvas.style.display = "none"
-    console.log("gameOver");
+        console.log("gameOver");
+
+        bgThirdScreen.style.display = "block"
     }
 
+    function restartGame() {
+      location.reload()
+    }
 
 });
