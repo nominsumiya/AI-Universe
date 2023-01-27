@@ -252,6 +252,7 @@ scoreElement.innerText = score
         console.log("gameOver");
         gameoverText.style.display = "block"
         bgThirdScreen.style.display = "block"
+        soundtrack.pause();
         harleyvoice.play();
     }
 

@@ -130,6 +130,10 @@ p {
 }
 
 .gameoverText {
+  position: absolute;
+  left: 460px;
+  top: 200px;
+  width: 20%;
   text-transform: uppercase;
   background-color: #40838f;
   color: white;
@@ -137,5 +141,4 @@ p {
   background: rgba#40838F(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
   padding: 10px;
   opacity: 0.9;
-  margin: auto; 
 }
