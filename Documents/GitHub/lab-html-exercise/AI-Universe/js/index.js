@@ -19,7 +19,7 @@ let gameoverText = document.querySelector(".gameoverText");
 const bgImg = new Image();
 bgImg.src = "../images/background.png";
 const bgImg2 = new Image();
-bgImg2.src = "../images/bgsecondScreen.png";
+bgImg2.src = "../images/background3.png";
 const bgImg4 = new Image();
 bgImg4.src = "../images/bgsecondScreen.png";
 // Background Img / Game Over //
@@ -47,21 +47,21 @@ let isMovingDown = false
 
 // Obstacle 1 //
 const obstacle1 = new Image();
-obstacle1.src = "../images/harley.png";
+obstacle1.src = "../images/joker.png";
 let obstacle1X = 600;
 let obstacle1Y = 480;
 let obstacle1Speed = 2;
 // Obstacle 2 //
 const obstacle2 = new Image();
-obstacle2.src = "../images/harley.png";
+obstacle2.src = "../images/joker.png";
 let obstacle2X = 1000;
-let obstacle2Y = 50;
+let obstacle2Y = 5;
 let obstacle2Speed = 2;
 // Obstacle 3 //
 const obstacle3 = new Image();
-obstacle3.src = "../images/harley.png";
-let obstacle3X = 1500;
-let obstacle3Y = 480;
+obstacle3.src = "../images/joker.png";
+let obstacle3X = 1400;
+let obstacle3Y = 250;
 let obstacle3Speed = 2;
 // Animate //
 let bg1Y = 0
@@ -150,9 +150,9 @@ window.addEventListener("load", () => {
         ctx.drawImage(bgImg2, bg1Y, 0, myCanvas.width, myCanvas.height)
         ctx.drawImage(bgImg4, bg2y, 0, myCanvas.width, myCanvas.height)
         ctx.drawImage(harleyImg, harleyX, harleyY, harleyWidth, harleyHeight);
-        ctx.drawImage(obstacle1, obstacle1X, obstacle1Y, 60, 100);
-        ctx.drawImage(obstacle2, obstacle2X, obstacle2Y, 60, 100);
-        ctx.drawImage(obstacle3, obstacle3X, obstacle3Y, 60, 100);
+        ctx.drawImage(obstacle1, obstacle1X, obstacle1Y, 100, 120);
+        ctx.drawImage(obstacle2, obstacle2X, obstacle2Y, 100, 120);
+        ctx.drawImage(obstacle3, obstacle3X, obstacle3Y, 100, 120);
         bg1Y += 0.5;
         bg2y += 0.5;
 
@@ -240,13 +240,6 @@ scoreElement.innerText = score
         bgThirdScreen.style.display = "block"
     }
 
-    function restartGame() {
-       let textBox = document.querySelector(".textBox");
-       let characterName = document.querySelector("#charactername");
-
-       characterName.innerHTML = "restartGame";
-    }
-
     document.querySelector('.restartGame').addEventListener('click', function(){
         window.location.reload();
         return false;
@@ -254,6 +247,10 @@ scoreElement.innerText = score
 
     function restartGame() {
         location.reload();
+        let textBox = document.querySelector(".textBox");
+        let characterName = document.querySelector("#charactername");
+
+       characterName.innerHTML = "restartGame";
       }
     
 });
