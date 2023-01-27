@@ -28,12 +28,17 @@ bgImg5.src = "../images/background.png";
 // Harley Img //
 const harleyImg = new Image();
 harleyImg.src = "../images/harley.png";
-let harleyX = 80;
-let harleyY = 420;
-let harleyWidth = 100;
-let harleyHeight = 160;
+let harleyX = 50;
+let harleyY = 440;
+let harleyWidth = 130;
+let harleyHeight = 150;
 // Score //
 let scoreElement = document.querySelector("#scr");
+// Sound //
+let soundtrack = new Audio("/images/soundtrack.mp3");
+soundtrack.volume = 0.1;
+let harleyvoice = new Audio("./images/harley.mp3")
+soundtrack.volume = 0.2;
 
 /*
 let harleyCharacter = document.getElementById("harley");
@@ -61,7 +66,7 @@ let obstacle2Speed = 2;
 const obstacle3 = new Image();
 obstacle3.src = "../images/joker.png";
 let obstacle3X = 1400;
-let obstacle3Y = 250;
+let obstacle3Y = 480;
 let obstacle3Speed = 2;
 // Animate //
 let bg1Y = 0
@@ -91,6 +96,7 @@ window.addEventListener("load", () => {
         myCanvas.style.display = "flex"
         gameBoard.style.display = 'block'
         firstScreen.style.display = "none"
+        soundtrack.play();
 
         console.log("startGame")
         animate()
@@ -153,26 +159,34 @@ window.addEventListener("load", () => {
         ctx.drawImage(obstacle1, obstacle1X, obstacle1Y, 100, 120);
         ctx.drawImage(obstacle2, obstacle2X, obstacle2Y, 100, 120);
         ctx.drawImage(obstacle3, obstacle3X, obstacle3Y, 100, 120);
-        bg1Y += 0.5;
-        bg2y += 0.5;
+        bg1Y += 0.8;
+        bg2y += 0.8;
 
 scoreElement.innerText = score
 
+    if(obstacle1X <= harleyX && obstacle1X > harleyX -2) {
+        score++
+    }
+    if(obstacle2X <= harleyX && obstacle2X > harleyX -2) {
+        score++
+    }
+    if(obstacle3X <= harleyX && obstacle3X > harleyX -2) {
+        score++
+    }
+
+
         obstacle1X -= 2
         if(obstacle1X < -200){
-            score++
             obstacle1X = myCanvas.width + 200;
         }
 
         obstacle2X -= 2
         if(obstacle2X < -200){
-            score++
             obstacle2X = myCanvas.width + 200;
         }
 
         obstacle3X -= 2
         if(obstacle3X < -200){
-            score++
             obstacle3X = myCanvas.width + 200;
         }
 
@@ -234,10 +248,11 @@ scoreElement.innerText = score
 
     function gameOver() {
         thirdScreen.style.display = "block"
-            myCanvas.style.display = "none"
+        myCanvas.style.display = "none"
         console.log("gameOver");
-
+        gameoverText.style.display = "block"
         bgThirdScreen.style.display = "block"
+        harleyvoice.play();
     }
 
     document.querySelector('.restartGame').addEventListener('click', function(){
@@ -250,7 +265,7 @@ scoreElement.innerText = score
         let textBox = document.querySelector(".textBox");
         let characterName = document.querySelector("#charactername");
 
-       characterName.innerHTML = "restartGame";
+       characterName.innerHTML = (".restartGame");
       }
     
 });

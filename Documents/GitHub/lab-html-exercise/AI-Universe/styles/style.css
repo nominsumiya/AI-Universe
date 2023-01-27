@@ -5,14 +5,15 @@ body {
   justify-content: center;
   align-items: center;
   background-color: black;
+  font-style: italic;
 }
 
 .harley-img {
   position: absolute;
-  width: 100px;
+  width: 150px;
   height: 170px;
   top: 50%;
-  left: 38%;
+  left: 33%;
   opacity: 1;
 }
 .harley-img:hover {
@@ -30,6 +31,7 @@ body {
 
 .background-img {
   position: absolute;
+  z-index: -10;
   top: 0;
   left: 0;
   min-width: 100%;
@@ -39,10 +41,7 @@ body {
 h1 {
   text-align: center;
   color: white;
-  font-family: "Franklin Gothic Medium";
   font-size: 30px;
-  display: flex;
-  justify-content: center;
 }
 
 p {
@@ -73,6 +72,7 @@ p {
 
 
 .startButton {
+  font-style: italic;
   position: absolute;
   top: 125%;
   left: 48%;
@@ -111,6 +111,7 @@ p {
 
 .restartGame {
   position: absolute;
+  font-style: italic;
   top: 80%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -129,9 +130,12 @@ p {
 }
 
 .gameoverText {
-  position: absolute;
-  top: 60%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-transform: uppercase;
+  background-color: #40838f;
+  color: white;
+  background: rgb#40838F(0, 0, 0.5); /* Fallback color */
+  background: rgba#40838F(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+  padding: 10px;
+  opacity: 0.9;
+  margin: auto; 
 }
