@@ -13,6 +13,7 @@ let thirdScreen = document.querySelector("#thirdScreen");
 const bgThirdScreen = document.querySelector('.background-img');
 let restartGame = document.querySelector(".restartGame");
 let characterName = document.querySelector("#characterName");
+let textBox = document.querySelector(".textBox");
 let gameoverText = document.querySelector(".gameoverText");
 // Background Img //
 const bgImg = new Image();
@@ -49,19 +50,19 @@ const obstacle1 = new Image();
 obstacle1.src = "../images/harley.png";
 let obstacle1X = 600;
 let obstacle1Y = 480;
-let obstacle1Speed = 5;
+let obstacle1Speed = 2;
 // Obstacle 2 //
 const obstacle2 = new Image();
 obstacle2.src = "../images/harley.png";
 let obstacle2X = 1000;
-let obstacle2Y = 480;
-let obstacle2Speed = 5;
+let obstacle2Y = 50;
+let obstacle2Speed = 2;
 // Obstacle 3 //
 const obstacle3 = new Image();
 obstacle3.src = "../images/harley.png";
 let obstacle3X = 1500;
 let obstacle3Y = 480;
-let obstacle3Speed = 5;
+let obstacle3Speed = 2;
 // Animate //
 let bg1Y = 0
 let bg2y = -myCanvas.height;
@@ -239,11 +240,12 @@ scoreElement.innerText = score
         bgThirdScreen.style.display = "block"
     }
 
-    function test() {
-        gameoverText.innerHTML = characterName.value;
+    function restartGame() {
+       let textBox = document.querySelector(".textBox");
+       let characterName = document.querySelector("#charactername");
+
+       characterName.innerHTML = "restartGame";
     }
-    startButton.addEventListener('click', test);
-    
 
     document.querySelector('.restartGame').addEventListener('click', function(){
         window.location.reload();

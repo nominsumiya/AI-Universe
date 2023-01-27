@@ -74,8 +74,8 @@ p {
 
 .startButton {
   position: absolute;
-  top: 95%;
-  left: 50%;
+  top: 125%;
+  left: 48%;
   transform: translate(-50%, -50%);
   background-color: #40838f;
   border: darkblue;
@@ -130,12 +130,8 @@ p {
 
 .gameoverText {
   position: absolute;
-  background-color: #40838f;
-  color: white;
-  position: relative;
-  background: rgb#40838F(0, 0, 0.5); /* Fallback color */
-  background: rgba#40838F(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
-  width: 100%;
-  padding: 30px;
-  opacity: 0.8;
+  top: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
