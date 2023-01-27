@@ -36,7 +36,7 @@ let harleyHeight = 150;
 let scoreElement = document.querySelector("#scr");
 // Sound //
 let soundtrack = new Audio("/images/soundtrack.mp3");
-soundtrack.volume = 0.1;
+soundtrack.volume = 0.2;
 let harleyvoice = new Audio("./images/harley.mp3")
 soundtrack.volume = 0.2;
 
@@ -266,7 +266,8 @@ scoreElement.innerText = score
         let textBox = document.querySelector(".textBox");
         let characterName = document.querySelector("#charactername");
 
-       characterName.innerHTML = (".restartGame");
+       characterName.innerHTML = ('.restartGame');
       }
+      console.log(restartGame);
     
 });

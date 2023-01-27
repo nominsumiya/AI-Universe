@@ -1,5 +1,4 @@
 /* First Screen*/
-
 body {
   display: flex;
   justify-content: center;
@@ -63,8 +62,8 @@ p {
   background-color: #40838f;
   color: white;
   position: center;
-  background: rgb#40838F(0, 0, 0.5); /* Fallback color */
-  background: rgba#40838F(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+  background: rgb#40838F(0, 0, 0.5); 
+  background: rgba#40838F(0, 0, 0, 0.5); 
   width: 40%;
   padding: 10px;
   opacity: 0.9;
@@ -91,8 +90,8 @@ p {
   opacity: 1;
 }
 
-/* Second Screen*/
 
+/* Second Screen*/
 #game-board {
   display: none;
 }
@@ -107,8 +106,8 @@ p {
   display: none;
 }
 
-/* Third Screen */
 
+/* Third Screen */
 .restartGame {
   position: absolute;
   font-style: italic;
@@ -137,8 +136,8 @@ p {
   text-transform: uppercase;
   background-color: #40838f;
   color: white;
-  background: rgb#40838F(0, 0, 0.5); /* Fallback color */
-  background: rgba#40838F(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+  background: rgb#40838F(0, 0, 0.5); 
+  background: rgba#40838F(0, 0, 0, 0.5); 
   padding: 10px;
   opacity: 0.9;
 }
